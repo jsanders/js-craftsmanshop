@@ -1,16 +1,10 @@
 (function() {
   window.primeFactors = function(num) {
     var primes = [];
-    var candidate = 2;
-    while(num > 1) {
-      while(num % candidate == 0) {
+    for(var candidate = 2; num > 1; candidate++) {
+      for(; num % candidate == 0; num /= candidate) {
         primes.push(candidate);
-        num = num / candidate;
       }
-      candidate = candidate + 1;
-    }
-    if(num > 1) {
-      primes.push(num);
     }
     return primes;
   };
